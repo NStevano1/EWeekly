@@ -88,3 +88,53 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+
+# Ionic untracked files 
+
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+log.txt
+*.sublime-project
+*.sublime-workspace
+.vscode/
+npm-debug.log*
+
+.idea/
+.ionic/
+.sourcemaps/
+.sass-cache/
+.tmp/
+.versions/
+coverage/
+www/
+node_modules/
+tmp/
+temp/
+platforms/
+plugins/
+plugins/android.json
+plugins/ios.json
+$RECYCLE.BIN/
+
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+
+# Capacitor
+
+# NPM renames .gitignore to .npmignore
+# In order to prevent that, we remove the initial "."
+# And the CLI then renames it
+
+App/build
+App/Pods
+App/public
+App/Podfile.lock
+xcuserdata
+
+# Cordova plugins for Capacitor
+capacitor-cordova-ios-plugins

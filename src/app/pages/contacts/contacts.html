@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Contacts</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-left (click)="goBack()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+   <ion-card *ngFor="let contact of contacts" (click)="goToContactPage(contact.id)">
+        <ion-item>
+            <ion-avatar item-start *ngIf="contact.image;else elseBlock">
+                <img src="{{ globals.dataDirectory }}data/assets/{{ contact.image }}">
+            </ion-avatar>
+            <ng-template #elseBlock>
+                <ion-icon name="contact" item-start></ion-icon>
+            </ng-template>
+            <span class="card-title">{{ contact.name }}</span>
+            <p class="contact-title">{{ contact.title }}</p>
+            <p class="contact-information" *ngIf="contact.telephone != null"><ion-icon name="ios-call-outline"></ion-icon> {{ contact.telephone }}</p>
+        </ion-item>
+    </ion-card>
+   
+</ion-content>
+
+<ion-footer>
+  
+  <ion-grid style="margin-bottom: 1em;">
+
+    <ion-row>
+
+        <ion-col style="size: 35%;" >
+            <ion-item button (click)="goToDaysPage()">
+                <ion-label style="font-size: small;">
+                  Schedule
+                </ion-label>
+              </ion-item>
+        </ion-col>
+
+        <ion-col style="size: 30%;">
+            <ion-item button >
+                <ion-label style="font-size: small;">
+                  Contacts
+                </ion-label>
+              </ion-item>
+        </ion-col>
+
+        <ion-col style="size: 35%;">
+            <ion-item button (click)="goToDocumentsPage()">
+                <ion-label style="font-size: small;">
+                  Documents
+                </ion-label>
+              </ion-item>
+        </ion-col>
+
+    </ion-row>
+
+</ion-grid>
+
+</ion-footer>

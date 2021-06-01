@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sync
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sync</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      Enter Secret Key
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+
+          <ion-input type="text" [(ngModel)]="trip_owner" >
+
+          </ion-input>
+
+        </ion-item>
+      </ion-list>
+      <ion-button ion-button expand="block" (click)="getCourseList()">Get Week List</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Switch Week
+    </ion-card-header>
+    <ion-card-content>
+      
+      <ion-list>
+
+        <ion-item>
+
+          <ion-label>Week Title</ion-label>
+          <ion-select [(ngModel)]="CourseList" (ionChange)="tripSelected($event)">
+            <ion-select-option *ngFor="let list of lists" [value]="list.trip_id" >
+              {{list.trip_name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+      </ion-list>
+      
+      <ion-button ion-button expand="block" (click)="setTrip()">
+        Select Week
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card content>
+    <ion-card-header>
+      Sync data
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Heads up!</strong> You should make sure this device is connected to a network that has access to the
+        internet.</p>
+
+
+      <ion-button ion-button expand="block" icon-left (click)="syncData()">
+        <ion-icon name="refresh"></ion-icon>
+        Sync Data
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

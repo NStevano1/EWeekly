@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title *ngIf="contact">{{ contact.name }}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-left (click)="goBack()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+    <ion-card *ngIf="contact">
+        <div class="contact-header">
+            <div *ngIf="contact.image" class="contact-photo">
+                <img src="{{ globals.dataDirectory }}data/assets/{{ contact.image }}">
+            </div>
+            <div class="contact-info">
+                <h1>{{ contact.name }}</h1>
+                <p><strong>{{ contact.title }}</strong></p>
+            </div>
+        </div>
+        
+        <ion-card>
+            <div class="contact-info">
+                <p *ngIf="contact.telephone"><ion-icon name="ios-call-outline"></ion-icon> {{ contact.telephone }}</p>
+                <p *ngIf="contact.email"><ion-icon name="ios-mail-outline"></ion-icon> {{ contact.email }}</p>
+            </div>
+
+            <div class="body" [innerHTML]="contact.body_html"></div>
+        </ion-card>
+    </ion-card>
+</ion-content>

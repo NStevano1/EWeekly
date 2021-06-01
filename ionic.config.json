@@ -1,0 +1,7 @@
+{
+  "name": "gc-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
