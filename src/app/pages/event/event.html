@@ -1,12 +1,12 @@
 <ion-header>
-    <ion-navbar>
+    <ion-toolbar>
         <ion-title *ngIf="event">{{ event.title }}</ion-title>
         <ion-buttons end>
             <button ion-button icon-left (click)="goBack()">
                 <ion-icon name="arrow-back-outline"></ion-icon>
             </button>
         </ion-buttons>
-    </ion-navbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -43,7 +43,7 @@
             </ion-card-header>
             <ion-card-content>
                 <ion-list>
-                    <a ion-item text-wrap *ngFor="let document of event.documents" (click)="showDocument(document.id)">
+                    <a ion-item text-wrap *ngFor="let document of event.documents" (click)="openDocs()">
                         <ion-icon name="document"></ion-icon> {{ document.name }}
                     </a>
                 </ion-list>
@@ -55,7 +55,7 @@
                 <h2 class="card-title">Participants</h2>
             </ion-card-header>
             <ion-card-content>
-                <a ion-item text-wrap *ngFor="let person of event.participants" (click)="showPerson(person.id)">
+                <a ion-item text-wrap *ngFor="let person of event.participants" (click)="showContacts()">
                     <ion-avatar item-start *ngIf="person.image;else elseBlock">
                         <img src="{{ globals.dataDirectory }}data/assets/{{ person.image }}">
                     </ion-avatar>

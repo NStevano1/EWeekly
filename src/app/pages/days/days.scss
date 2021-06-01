@@ -1,5 +1,17 @@
 page-days {
 
+  :root {
+    --ion-safe-area-top: 20px;
+    --ion-safe-area-bottom: 22px;
+    --ion-safe-area-left: 15px;
+    --ion-safe-area-right: 15px;
+  }
+
+  section:not(.full-width),
+    .full-width > header {
+      padding: 0 10px;
+    }
+
   .page-container {
     background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%), url(../../../assets/images/meeting-bk.png) center center no-repeat;
     background-size: cover;

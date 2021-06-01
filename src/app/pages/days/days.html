@@ -2,7 +2,7 @@
     <ion-toolbar>
         <ion-title>Schedule</ion-title>
         <ion-buttons end>
-            <button ion-button icon-left (click)="goBack()">
+            <button ion-button icon-left (click)="goToSyncPage()">
                 <ion-icon name="refresh"></ion-icon>
             </button>
         </ion-buttons>
@@ -32,37 +32,15 @@
 
 <ion-footer>
     
-    <ion-grid style="margin-bottom: 1em;">
-
-        <ion-row>
-
-            <ion-col style="size: 35%;" >
-                <ion-item button>
-                    <ion-label style="font-size: small;">
-                      Schedule
-                    </ion-label>
-                  </ion-item>
-            </ion-col>
-
-            <ion-col style="size: 30%;">
-                <ion-item button (click)="goToContactsPage()">
-                    <ion-label style="font-size: small;">
-                      Contacts
-                    </ion-label>
-                  </ion-item>
-            </ion-col>
-
-            <ion-col style="size: 35%;">
-                <ion-item button (click)="goToDocumentsPage()">
-                    <ion-label style="font-size: small;">
-                      Documents
-                    </ion-label>
-                  </ion-item>
-            </ion-col>
-
-        </ion-row>
-
-    </ion-grid>
-    
+    <section class="full-width" style="margin-bottom: 1em; margin-left: 1em; margin-right: 1em;">
+        <ion-button style="width: max-content;  float: left;">
+            Schedule
+        </ion-button>
+        <ion-button style="width: max-content; padding-left: 3%; padding-right: 2%; " (click)="goToContactsPage()">
+            Contacts
+        </ion-button>
+        <ion-button style="width: max-content; float: right;" (click)="goToDocumentsPage()">
+            Documents
+        </ion-button>
+    </section>
 </ion-footer>
-

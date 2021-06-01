@@ -3,6 +3,7 @@ import { Platform } from '@ionic/angular';
 import {DaysProvider, Day, Event} from '../../providers/days/days';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-page-event',
@@ -15,7 +16,7 @@ export class EventPage implements OnInit {
     id: number;
     private sub: any;
 
-    constructor(private platform: Platform, private daysProvider: DaysProvider, private route: ActivatedRoute, private location: Location) {
+    constructor(private platform: Platform, private daysProvider: DaysProvider, private router: Router, private route: ActivatedRoute, private location: Location) {
     }
 
     ngOnInit() {
@@ -37,5 +38,13 @@ export class EventPage implements OnInit {
 
     goBack() {
         this.location.back();
+    }
+
+    showContacts(){
+        this.router.navigate(['/contacts']);
+    }
+
+    openDocs(){
+        this.router.navigate(['/documents']);
     }
 }
