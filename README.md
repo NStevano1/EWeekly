@@ -33,8 +33,8 @@ GlobalsProvider (`src/app/providers/globals`):
 
 ```bash
 $ npm install
-$ ionic cap sync
 $ ionic capacitor copy ios
+$ ionic cap sync
 ```
 
 On first run, you will be taken to the Sync screen.
@@ -86,8 +86,8 @@ Avant de compiler l’application pour s'en servir sur un appareil ou dans un é
 
 ```bash
 $ npm install
-$ ionic cap sync
 $ ionic capacitor copy ios
+$ ionic cap sync
 ```
 
 À la première utilisation, vous vous retrouverez à l’écran Sync (synchronisation).
