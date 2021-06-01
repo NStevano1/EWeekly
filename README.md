@@ -33,7 +33,7 @@ GlobalsProvider (`src/app/providers/globals`):
 
 ```bash
 $ npm install
-$ Ionic cap sync
+$ ionic cap sync
 $ ionic capacitor copy ios
 ```
 
@@ -86,7 +86,7 @@ Avant de compiler l’application pour s'en servir sur un appareil ou dans un é
 
 ```bash
 $ npm install
-$ Ionic cap sync
+$ ionic cap sync
 $ ionic capacitor copy ios
 ```
 

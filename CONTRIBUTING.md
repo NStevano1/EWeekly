@@ -8,8 +8,8 @@ from anyone at any time.  No matter who you are, if you spot an error, omission,
   and we'll be happy to help.
 
 ## CDS Contributions
-To contribute content edits, blog posts, or bugfixes, create a branch from `master` and submit a pull request.  A 
+To contribute content edits, blog posts, or bugfixes, create a branch from `main` and submit a pull request.  A 
 member of the development team will review your changes, and once approved, will merge and deploy.
 
 ## Branches and Deployment
-`master` branch is protected and should be the target for all pull requests.
+`main` branch is protected and should be the target for all pull requests.

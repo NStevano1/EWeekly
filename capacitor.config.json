@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "gc-test",
+  "appId": "com.cds.applications.ebrief",
+  "appName": "E-Briefing",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
