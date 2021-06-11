@@ -43,4 +43,17 @@ export class DayPage implements OnInit {
         this.router.navigate(['/event', id]);
 
     }
+
+    goToDaysPage(){
+        this.router.navigate(['/days']);
+    }
+    
+    goToDocumentsPage() {
+        this.router.navigate(['/documents']);
+    }
+
+    goToContactsPage() {
+        this.router.navigate(['/contacts']);
+    }
+
 }

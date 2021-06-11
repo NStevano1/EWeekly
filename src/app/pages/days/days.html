@@ -1,46 +1,51 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>Schedule</ion-title>
-        <ion-buttons end>
-            <button ion-button icon-left (click)="goToSyncPage()">
-                <ion-icon name="refresh"></ion-icon>
-            </button>
+        <ion-buttons slot="end" (click)="goToSyncPage()">
+            <ion-icon name="refresh"></ion-icon>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="header-image" *ngIf="trip">
-        <div class="header-text">
-            <label style="margin-left: 2em;">
-                {{ trip.name }}
-            </label>
-        </div>
+    <div style="width: 100%;" *ngIf="trip">
+        <ion-card class="myCard">
+          <img src="../../../assets/images/shaw-centre-at-night.png"/>
+          <div class="myOverlay">
+             <div class="card-title">{{ trip.name }}</div>
+          </div>
+        </ion-card>
     </div>
     <ion-grid>
         <ion-row>
-            <ion-col col-12>
+            <ion-col>
                 <ion-card class="days-cards" *ngFor="let day of days" tappable (click)="goToDayPage(day.id)">
-                    <span class="card-title"><h1>{{ day.name }}</h1></span>
-                    <span class="card-footer"><ion-icon name="ios-calendar-outline"></ion-icon> {{ day.date }}</span>
+                    <div style="justify-content: center; margin-left: 35%;"><h1><b>{{ day.name }}</b></h1></div>
+                    <div style="float: right;"><ion-icon name="ios-calendar-outline"></ion-icon> {{ day.date }}</div>
                 </ion-card>
             </ion-col>
         </ion-row>
     </ion-grid>
 
+    
 </ion-content>
 
-<ion-footer>
-    
-    <section class="full-width" style="margin-bottom: 1em; margin-left: 1em; margin-right: 1em;">
-        <ion-button style="width: max-content;  float: left;">
-            Schedule
-        </ion-button>
-        <ion-button style="width: max-content; padding-left: 3%; padding-right: 2%; " (click)="goToContactsPage()">
-            Contacts
-        </ion-button>
-        <ion-button style="width: max-content; float: right;" (click)="goToDocumentsPage()">
-            Documents
-        </ion-button>
-    </section>
-</ion-footer>
+<ion-toolbar style="margin-bottom: 1em;">
+    <ion-tabs style="height: max-content;">
+        <ion-tab-bar>
+          <ion-tab-button>
+            <ion-icon style="font-size: 25px;" name="calendar"></ion-icon>
+            <ion-label>Schedule</ion-label>
+          </ion-tab-button>
+          <ion-tab-button (click)="goToDocumentsPage()">
+            <ion-icon style="font-size: 25px;" name="copy"></ion-icon>
+            <ion-label>Documents</ion-label>
+          </ion-tab-button>
+          <ion-tab-button (click)="goToContactsPage()">
+            <ion-icon style="font-size: 25px;" name="people-circle-outline"></ion-icon>
+            <ion-label>Contacts</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>          
+</ion-toolbar>
+

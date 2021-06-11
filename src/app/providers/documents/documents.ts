@@ -14,6 +14,18 @@ export interface Doc {
     fileName: string;
 }
 
+export interface Document {
+    id: number;
+    trip_id: number;
+    document_type: string;
+    name: string;
+    file: string;
+    sort_id: number;
+    is_protected: number;
+    created_at: string;
+    updated_at: string;
+}
+
 @Injectable()
 export class DocumentsProvider {
 
@@ -34,33 +46,32 @@ export class DocumentsProvider {
 
     }
 
-    async openDocumentIonic(fileName) {
-        console.log('ionic filename is:' + fileName);
-        const fullPath = this.dirUrl = this.file.documentsDirectory + 'data/assets/documents/' + fileName;
-        var fileMIME
-        this.getMIMEextension(fileName).then(res => {
-            fileMIME = res;
-          });
+    async getDocuments() {
+        const result = await CustomFileReader.getFile( {value: 'data/documents.json'});
+        console.log(result.data);
+        return result.data;
+
+    }
+
+    async openDocumentIonic(document:Document) {
+        console.log('ionic filename is:' + document.name);
+        const fullPath = this.dirUrl = this.file.documentsDirectory + 'data/assets/' + document.file;
+        var fileMIME = this.getMIMEtype(document.document_type);
         this.fileOpener.open(fullPath, fileMIME);
     }
 
-    async getMIMEextension(fileName){
-
-        var fileExt = fileName.split('.').pop();
-        var fileMIME
-        if(fileExt == 'pdf'){
-            fileMIME = 'application/pdf'
-            return fileMIME
+    getMIMEtype(extn){
+        let ext = extn.toLocaleLowerCase();
+        let MIMETypes = {
+          'pdf' : 'application/pdf',
+          'docx':'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          'doc' : 'application/msword',
+          'xls' : 'application/vnd.ms-excel',
+          'xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+          'ppt' : 'application/vnd.ms-powerpoint',
+          'pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
         }
-        if(fileExt == 'doc'){
-            fileMIME = 'application/msword'
-            return fileMIME
-        }
-        if(fileExt == 'doc'){
-            fileMIME = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-            return fileMIME
-        }
-
-    }
+        return MIMETypes[ext];
+      }
 
 }

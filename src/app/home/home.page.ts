@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HTTP } from '@ionic-native/http/ngx';
 import { File } from '@ionic-native/file/ngx';
 import {RootProvider, Week} from '../providers/root/root';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,19 @@ export class HomePage {
   public error: any;
   public CourseList: any;
   public lists: Week[];
+  public isVisible: boolean;
 
   dataDirectory: string = '';
   trip_id: string = '1';
   trip_owner: string = '';
 
-  constructor(private rootProvider: RootProvider) {
+  constructor(private rootProvider: RootProvider, private file: File, private location: Location) {
+
+      if( this.file.checkDir(file.documentsDirectory, 'data') ){
+          this.isVisible = true;
+      } else{
+          this.isVisible = false; 
+      }
 
   }
 
@@ -74,5 +82,8 @@ getCourseList() {
   );
 }
 
+goBack() {
+  this.location.back();
+}
 
 }

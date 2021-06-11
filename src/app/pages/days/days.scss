@@ -3,8 +3,6 @@ page-days {
   :root {
     --ion-safe-area-top: 20px;
     --ion-safe-area-bottom: 22px;
-    --ion-safe-area-left: 15px;
-    --ion-safe-area-right: 15px;
   }
 
   section:not(.full-width),
@@ -12,13 +10,44 @@ page-days {
       padding: 0 10px;
     }
 
+    .bottom-tabs {
+      position: fixed;
+      left: 0;
+      bottom: 10px;
+      right: 0;
+      margin-bottom: 10px;
+  }
+
+  img{
+    width:100%;
+    height:100%;
+  }  
+
+  .myCard{
+    position:relative;
+  
+  }
+  
+  .myOverlay{
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      z-index: 99;
+      bottom: 0px;
+      opacity: 0.5;
+      background: #000;
+      color: #fff;
+  
+  }
+  
+
   .page-container {
     background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%), url(../../../assets/images/meeting-bk.png) center center no-repeat;
     background-size: cover;
   }
 
   .header-image {
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%), url(../../../assets/images/meeting-bk.png) center center no-repeat;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.85) 100%), url(../../../assets/images/shaw-centre-at-night.png) center center no-repeat;
     background-size: cover;
     width: 100%;
     height: 25rem;
@@ -51,14 +80,15 @@ page-days {
       text-align: center;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
       border-bottom: #f4f4f4 dashed 0.25rem;
     }
     .card-footer {
       display: block;
       text-align: center;
+      float: right;
     }
   }
 

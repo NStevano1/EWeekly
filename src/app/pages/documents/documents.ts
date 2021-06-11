@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { DocumentsProvider, Doc } from '../../providers/documents/documents';
+import { DocumentsProvider, Doc, Document } from '../../providers/documents/documents';
 
 
 @Component({
-    selector: 'app-page-documents',
+    selector: 'page-documents',
     templateUrl: 'documents.html',
     styleUrls: ['documents.scss']
 })
@@ -16,11 +16,15 @@ export class DocumentsPage {
     public error: any;
     docs:Doc[];
     doc:Doc;
+    documents:Document[];
+    public keys: String[];
+
 
     constructor(private platform: Platform, private router: Router, private documentProvider: DocumentsProvider,
         private location: Location) {
         this.platform.ready().then(() => {
             this.loadDocuments();
+            
         });
     }
 
@@ -28,12 +32,12 @@ export class DocumentsPage {
 
         console.log('Load documents');
         //const docs = await this.documentProvider.getDocumentsCustom();
-        const docs = await this.documentProvider.getDocumentsCustom();
+        const docs = await this.documentProvider.getDocuments();
         console.log(docs);
-        this.docs = docs;
+        this.documents = docs;
         console.log('docs --')
-        this.docs = JSON.parse( String(docs));
-        //this.days = JSON.parse( String(days));
+        this.documents = JSON.parse( String(docs));
+        this.keys = Object.keys(this.documents);
     }
 
     goBack() {
@@ -49,7 +53,8 @@ export class DocumentsPage {
         this.router.navigate(['/contacts']);
     }
       
-    openDoc(fileName) {
-        this.documentProvider.openDocumentIonic(fileName);
+    openDoc(document:Document) {
+        console.log(document);
+        this.documentProvider.openDocumentIonic(document);
     }
 }

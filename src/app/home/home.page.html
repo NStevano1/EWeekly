@@ -3,6 +3,10 @@
     <ion-title>
       Sync
     </ion-title>
+    <ion-buttons icon-left *ngIf="isVisible" (click)="goBack()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      <label>Back</label>            
+  </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -23,7 +27,7 @@
         internet.</p>
 
 
-      <ion-button ion-button expand="block" icon-left (click)="syncData()">
+      <ion-button ion button expand="block" icon-left (click)="syncData()">
         <ion-icon name="refresh"></ion-icon>
         Sync Data
       </ion-button>

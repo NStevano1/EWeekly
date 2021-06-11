@@ -3,6 +3,7 @@ import { Platform } from '@ionic/angular';
 import {ContactsProvider, Contact} from '../../providers/contacts/contacts';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-page-contact',
@@ -15,7 +16,7 @@ export class ContactPage implements OnInit {
     id: number;
     private sub: any;
 
-    constructor(private platform: Platform, private contactsProvider: ContactsProvider, private route: ActivatedRoute, private location: Location) {
+    constructor(private platform: Platform, private contactsProvider: ContactsProvider, private router: Router, private route: ActivatedRoute, private location: Location) {
     }
 
     ngOnInit() {
@@ -34,6 +35,18 @@ export class ContactPage implements OnInit {
         
             goBack() {
                 this.location.back();
+            }
+
+            goToDaysPage(){
+                this.router.navigate(['/days']);
+            }
+            
+            goToDocumentsPage() {
+                this.router.navigate(['/documents']);
+            }
+        
+            goToContactsPage() {
+                this.router.navigate(['/contacts']);
             }
 
 }

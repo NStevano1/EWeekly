@@ -45,6 +45,14 @@ export class RootProvider {
 
       public downloadFileAndStore(tripId) {
         //
+        
+        try{
+          this.file.removeFile(this.file.documentsDirectory, 'package.zip' );
+          this.file.removeDir(this.file.documentsDirectory, 'data');
+        } finally{
+
+        }
+  
         const filePath = this.file.documentsDirectory + 'package.zip';
         const unzipPath = this.file.documentsDirectory + 'data';
         this.tripId = tripId; 

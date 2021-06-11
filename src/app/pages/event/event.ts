@@ -4,6 +4,7 @@ import {DaysProvider, Day, Event} from '../../providers/days/days';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { DocumentsProvider, Doc, Document } from '../../providers/documents/documents';
 
 @Component({
     selector: 'app-page-event',
@@ -16,20 +17,17 @@ export class EventPage implements OnInit {
     id: number;
     private sub: any;
 
-    constructor(private platform: Platform, private daysProvider: DaysProvider, private router: Router, private route: ActivatedRoute, private location: Location) {
+    constructor(private platform: Platform, private daysProvider: DaysProvider, private router: Router, private route: ActivatedRoute, private location: Location, private documentProvider: DocumentsProvider) {
     }
 
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.id = +params['id']; // (+) converts string 'id' to a number
-            this.loadDay(this.id);
-            // In a real app: dispatch action to load the details here.
+            this.loadEvent(this.id);
          });
       }
 
-    async loadDay(id) {
-//        this.daysProvider.get(id).subscribe( ( data: Day ) => this.day = data); //console.log(data));
-
+    async loadEvent(id) {
         console.log('Load event');
         const event = await this.daysProvider.getEventCustom(id);
         console.log(event);
@@ -40,11 +38,23 @@ export class EventPage implements OnInit {
         this.location.back();
     }
 
-    showContacts(){
-        this.router.navigate(['/contacts']);
+    showContacts(id){
+        this.router.navigate(['/contact/id']);
     }
 
-    openDocs(){
+    openDoc(document:Document){
+        this.documentProvider.openDocumentIonic(document);
+    }
+
+    goToDaysPage(){
+        this.router.navigate(['/days']);
+    }
+    
+    goToDocumentsPage() {
         this.router.navigate(['/documents']);
+    }
+
+    goToContactsPage() {
+        this.router.navigate(['/contacts']);
     }
 }

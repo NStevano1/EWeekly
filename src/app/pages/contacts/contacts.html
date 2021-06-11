@@ -1,10 +1,9 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>Contacts</ion-title>
-        <ion-buttons end>
-            <button ion-button icon-left (click)="goBack()">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-            </button>
+        <ion-buttons icon-left (click)="goBack()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <label>Back</label>            
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -27,18 +26,22 @@
    
 </ion-content>
 
-<ion-footer>
-  
-    <section class="full-width" style="margin-bottom: 1em; margin-left: 1em; margin-right: 1em;">
-        <ion-button style="width: max-content;  float: left;" (click)="goToDaysPage()">
-            Schedule
-        </ion-button>
-        <ion-button style="width: max-content; padding-left: 3%; padding-right: 2%; ">
-            Contacts
-        </ion-button>
-        <ion-button style="width: max-content; float: right;" (click)="goToDocumentsPage()">
-            Documents
-        </ion-button>
-    </section>
+<ion-toolbar style="margin-bottom: 1em;">
+  <ion-tabs style="height: max-content;">
+      <ion-tab-bar>
+        <ion-tab-button (click)="goToDaysPage()">
+          <ion-icon style="font-size: 25px;" name="calendar"></ion-icon>
+          <ion-label>Schedule</ion-label>
+        </ion-tab-button>
+        <ion-tab-button (click)="goToDocumentsPage()">
+          <ion-icon style="font-size: 25px;" name="copy"></ion-icon>
+          <ion-label>Documents</ion-label>
+        </ion-tab-button>
+        <ion-tab-button (click)="goToContactsPage()">
+          <ion-icon style="font-size: 25px;" name="people-circle-outline"></ion-icon>
+          <ion-label>Contacts</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>          
+</ion-toolbar>
 
-</ion-footer>

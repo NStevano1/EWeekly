@@ -6,7 +6,7 @@ import {TripProvider, Trip} from '../../providers//trip/trip';
 import { Location } from '@angular/common';
 
 @Component({
-    selector: 'app-page-days',
+    selector: 'page-days',
     templateUrl: 'days.html',
     styleUrls: ['days.scss']
 })
