@@ -12,11 +12,11 @@
     <div *ngIf="event">
         <ion-card class="event-details">
             <ion-card-header>
-                <h2><ion-icon name="ios-time-outline"></ion-icon> {{ event.time_from }}<span *ngIf="event.time_to"> - {{ event.time_to }}</span></h2>
+                <h2><ion-icon name="time-outline"></ion-icon> {{ event.time_from }}<span *ngIf="event.time_to"> - {{ event.time_to }}</span></h2>
             </ion-card-header>
             <ion-card-content>
-                <h1>{{ event.title }}</h1>
-                <p margin-top margin-bottom><ion-icon name="ios-pin-outline"></ion-icon> {{ event.location_name }}
+                <h1><b>{{ event.title }}</b></h1>
+                <p margin-top margin-bottom><ion-icon name="location-outline"></ion-icon> {{ event.location_name }}
                     <span *ngIf="event.location_address">, {{ event.location_address }}</span>
                     <span *ngIf="event.location_postal">, {{ event.location_postal }}</span>
                 </p>
@@ -43,7 +43,7 @@
             <ion-card-content>
                 <ion-list>
                     <a ion-item text-wrap *ngFor="let document of event.documents" (click)="openDoc(document)">
-                        <ion-icon name="document"></ion-icon> {{ document.name }}
+                        <ion-icon name="document-outline"></ion-icon> {{ document.name }}
                     </a>
                 </ion-list>
             </ion-card-content>
@@ -59,12 +59,12 @@
                         <img src="{{ globals.dataDirectory }}data/assets/{{ person.image }}">
                     </ion-avatar>
                     <ng-template #elseBlock>
-                        <ion-icon name="contact" item-start></ion-icon>
+                        <ion-icon name="person-circle-outline" item-start></ion-icon>
                     </ng-template>
 
                     <h4 class="contact-name">{{ person.name }}</h4>
                     <p margin-bottom><strong>{{ person.title }}</strong></p>
-                    <p class="contact-information" *ngIf="person.telephone != null"><ion-icon name="ios-call-outline"></ion-icon> {{ person.telephone }}</p>
+                    <p class="contact-information" *ngIf="person.telephone != null"><ion-icon name="call-outline"></ion-icon> {{ person.telephone }}</p>
                 </a>
             </ion-card-content>
         </ion-card>

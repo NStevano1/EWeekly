@@ -11,19 +11,19 @@
 <ion-content>
 
     <div *ngIf="day">
-        <ion-card *ngIf="!day.events.length">
+        <ion-card style="padding: 2rem; margin-bottom: 1.5rem;" *ngIf="!day.events.length">
             No itinerary specified
         </ion-card>
 
-        <ion-card style="width: max-content;" class="card" *ngFor="let event of day.events" (click)="setEvent(event.id)">
+        <ion-card style="padding: 2rem; margin-bottom: 1.5rem;" *ngFor="let event of day.events" (click)="setEvent(event.id)">
             <ion-grid no-padding>
                 <ion-row>
-                <ion-col col-6 text-left><ion-icon name="ios-time-outline"></ion-icon> {{ event.time_from }}<span *ngIf="event.time_to"> - {{ event.time_to }}</span></ion-col>
-                <ion-col col-6 text-right><ion-icon name="ios-pin-outline"></ion-icon> {{ event.location_name }}</ion-col>
+                <ion-col style="size: 12; text-align: left;"><ion-icon name="time-outline"></ion-icon> {{ event.time_from }}<span *ngIf="event.time_to"> - {{ event.time_to }}</span></ion-col>
+                <ion-col style="size: 12; text-align: right;"><ion-icon name="location-outline"></ion-icon> {{ event.location_name }}</ion-col>
                 </ion-row>
             </ion-grid>
-            <h1 class = "event-title">{{ event.title }}</h1>
-            <div class="body" [innerHTML]="event.description_html"></div>
+            <h1 style="margin-top: 1rem; margin-bottom: 1rem;"><b>{{ event.title }}</b></h1>
+            <div style="white-space: pre-line;" [innerHTML]="event.description_html"></div>
         </ion-card>
     </div>
 
