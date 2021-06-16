@@ -12,9 +12,10 @@
     
     <ion-card style="padding: 1rem; margin: 1.5rem;" *ngFor="let key of keys">
         <h2 style="display: flex; flex-wrap: wrap; justify-content: left; margin-top: 1rem; margin-bottom: 1rem; padding-bottom: 1.5rem; padding-left: 1rem; border-bottom: #f4f4f4 dashed 0.25rem; color: #000 !important;"><b>{{ key }}</b></h2>
-        <ion-list style="padding-left: 1rem;">
+        <ion-list style="padding-left: 1rem; padding-bottom: 1rem;">
             <a ion-item text-wrap *ngFor="let document of documents[key]" (click)="openDoc(document)">
-                <ion-icon name="document-outline" style="color: black;" ></ion-icon> {{ document.name }}
+                <ion-icon name="document" style="color: black; font-size: 1rem;" ></ion-icon> <b style="font-size: 1rem;">{{ document.name }}</b>
+                <br>
                 <br>
             </a> 
         </ion-list>

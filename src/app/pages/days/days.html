@@ -15,7 +15,7 @@
         <ion-row>
             <ion-col style="size: 12;">
                 <ion-card style="padding: 2rem; margin-bottom: 1.5rem;" *ngFor="let day of days" tappable (click)="goToDayPage(day.id)">
-                      <span style="font-size: 2rem; height: 1rem; display: flex; text-align: center; flex-wrap: wrap; justify-content: center; margin-top: 0.75rem; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: #f4f4f4 dashed 0.25rem;"><h1><b>{{ day.name }}</b></h1></span>
+                      <span style="font-size: 2rem; height: 1rem; display: flex; text-align: center; flex-wrap: wrap; justify-content: center; margin-top: 0.75rem; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: #f4f4f4 dashed 0.25rem;"><h1 style="font-weight: bolder;">{{ day.name }}</h1></span>
                       <span style="display: block; text-align: right; font-size: x-small;"><ion-icon name="calendar-clear-outline"></ion-icon> {{ day.date }}</span>
                 </ion-card>
             </ion-col>

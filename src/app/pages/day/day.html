@@ -12,7 +12,7 @@
 
     <div *ngIf="day">
         <ion-card style="padding: 2rem; margin-bottom: 1.5rem;" *ngIf="!day.events.length">
-            No itinerary specified
+            <b>No itinerary specified</b>
         </ion-card>
 
         <ion-card style="padding: 2rem; margin-bottom: 1.5rem;" *ngFor="let event of day.events" (click)="setEvent(event.id)">

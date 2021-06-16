@@ -18,7 +18,7 @@
             <ng-template #elseBlock>
                 <ion-icon name="person-circle-outline" item-start></ion-icon>
             </ng-template>
-            <span style="font-size: 1.5rem; font-weight: 700; display: flex; flex-wrap: wrap; margin-top: 0.5rem; margin-bottom: 0.5rem;">{{ contact.name }}</span>
+            <span style="font-size: 1.5rem; font-weight: 700; display: flex; flex-wrap: wrap; margin-top: 0.5rem; margin-bottom: 0.5rem; padding-left: 0.5rem;">{{ contact.name }}</span>
             <p style="margin-bottom: 0.5rem; font-weight: 500;">{{ contact.title }}</p>
             <p style="margin-bottom: 0.5rem; overflow: inherit; font-size: 1.4rem; line-height: normal; text-overflow: inherit; color: #666; " *ngIf="contact.telephone != null"><ion-icon name="call-outline"></ion-icon> {{ contact.telephone }}</p>
         </ion-item>

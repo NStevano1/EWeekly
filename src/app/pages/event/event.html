@@ -56,13 +56,18 @@
             <ion-card-content>
                 <a ion-item text-wrap *ngFor="let person of event.participants" (click)="showContacts(person.id)">
                     <ion-avatar item-start *ngIf="person.image;else elseBlock">
-                        <img src="{{ globals.dataDirectory }}data/assets/{{ person.image }}">
+                        <ion-item>
+                            <img src="{{ globals.dataDirectory }}data/assets/{{ person.image }}">
+                            <p class="contact-name"><b>{{ person.name }}</b></p>
+                        </ion-item>
                     </ion-avatar>
                     <ng-template #elseBlock>
-                        <ion-icon name="person-circle-outline" item-start></ion-icon>
+                        <ion-item>
+                            <ion-icon name="person-circle-outline" item-start></ion-icon>
+                            <p class="contact-name"><b>{{ person.name }}</b></p>                            
+                        </ion-item>
                     </ng-template>
 
-                    <h4 class="contact-name">{{ person.name }}</h4>
                     <p margin-bottom><strong>{{ person.title }}</strong></p>
                     <p class="contact-information" *ngIf="person.telephone != null"><ion-icon name="call-outline"></ion-icon> {{ person.telephone }}</p>
                 </a>
