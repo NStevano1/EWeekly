@@ -13,20 +13,22 @@
    <ion-card style="padding: 0.5rem; margin-bottom: 1rem;" *ngFor="let contact of contacts" (click)="goToContactPage(contact.id)">
         <ion-item>
             <ion-avatar item-start *ngIf="contact.image;else elseBlock">
-                <img src="{{ globals.dataDirectory }}data/assets/{{ contact.image }}">
+                <img [src]="documentDirectory + 'data/assets/' + contact.image">
             </ion-avatar>
             <ng-template #elseBlock>
                 <ion-icon name="person-circle-outline" item-start></ion-icon>
             </ng-template>
-            <span style="font-size: 1.5rem; font-weight: 700; display: flex; flex-wrap: wrap; margin-top: 0.5rem; margin-bottom: 0.5rem; padding-left: 0.5rem;">{{ contact.name }}</span>
-            <p style="margin-bottom: 0.5rem; font-weight: 500;">{{ contact.title }}</p>
-            <p style="margin-bottom: 0.5rem; overflow: inherit; font-size: 1.4rem; line-height: normal; text-overflow: inherit; color: #666; " *ngIf="contact.telephone != null"><ion-icon name="call-outline"></ion-icon> {{ contact.telephone }}</p>
+            <div>
+            <span style="font-size: 1.4rem; font-weight: 700; display: flex; flex-wrap: wrap; margin-top: 0.5rem; margin-bottom: 0.5rem; padding-left: 0.5rem;">{{ contact.name }}</span>
+            <p style="margin-bottom: 0.5rem; overflow: inherit; font-size: 1rem; line-height: normal; color: #666; white-space: pre-line !important; padding-left: 0.5rem;">{{ contact.title }}</p>
+            <p style="margin-bottom: 0.5rem; overflow: inherit; font-size: 1rem; line-height: normal; color: #666; white-space: pre-line !important; padding-left: 0.5rem;" *ngIf="contact.telephone != null"><ion-icon name="call-outline"></ion-icon> {{ contact.telephone }} </p>
+            </div>
         </ion-item>
     </ion-card>
    
 </ion-content>
 
-<ion-toolbar style="margin-bottom: 1em;">
+<ion-toolbar style="margin-bottom: 0.5rem;">
   <ion-tabs style="height: max-content;">
       <ion-tab-bar>
         <ion-tab-button (click)="goToDaysPage()">

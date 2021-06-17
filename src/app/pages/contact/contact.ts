@@ -4,6 +4,7 @@ import {ContactsProvider, Contact} from '../../providers/contacts/contacts';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { File } from '@ionic-native/file/ngx';
 
 @Component({
     selector: 'app-page-contact',
@@ -15,8 +16,9 @@ export class ContactPage implements OnInit {
     public contact: any;
     id: number;
     private sub: any;
+    public imagePath:string;
 
-    constructor(private platform: Platform, private contactsProvider: ContactsProvider, private router: Router, private route: ActivatedRoute, private location: Location) {
+    constructor(private platform: Platform, private contactsProvider: ContactsProvider, private router: Router, private route: ActivatedRoute, private location: Location, private file: File) {
     }
 
     ngOnInit() {
@@ -31,6 +33,7 @@ export class ContactPage implements OnInit {
                 const contact = await this.contactsProvider.getContactCustom(id);
                 console.log(contact);
                 this.contact = JSON.parse( String(contact));
+                this.imagePath = this.file.documentsDirectory + 'data/assets/' + this.contact.image;
             }
         
             goBack() {

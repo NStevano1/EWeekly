@@ -3,7 +3,7 @@ import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import {ContactsProvider, Contact} from '../../providers/contacts/contacts';
 import { Location } from '@angular/common';
-
+import { File } from '@ionic-native/file/ngx';
 
 @Component({
     selector: 'app-page-contacts',
@@ -15,12 +15,14 @@ export class ContactsPage {
 
     public contacts: Contact[];
     public error: any;
+    public documentDirectory;
 
     constructor(private platform: Platform, private router: Router,
-        private contactsProvider: ContactsProvider, private location: Location) {
+        private contactsProvider: ContactsProvider, private location: Location, private file: File) {
         this.platform.ready().then(() => {
             this.loadContacts();
         });
+        this.documentDirectory = this.file.documentsDirectory;
     }
 
     async loadContacts() {

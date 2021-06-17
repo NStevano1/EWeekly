@@ -12,8 +12,8 @@
 <ion-content >
     <ion-card style="padding: 0.5rem; margin-bottom: 1rem;" *ngIf="contact">
         <div style="display: flex; align-items: center;">
-            <div *ngIf="contact.image" class="contact-photo">
-                <img style="max-height: 15rem; width: auto;" src="{{ globals.dataDirectory }}data/assets/{{ contact.image }}">
+            <div *ngIf="contact.image" >
+                <img style="max-height: 15rem; width: auto;" src="{{ imagePath }}">
             </div>
             <div style="margin-left: 2rem;">
                 <h1><b>{{ contact.name }}</b></h1>
@@ -32,7 +32,7 @@
     </ion-card>
 </ion-content>
 
-<ion-toolbar style="margin-bottom: 1em;">
+<ion-toolbar style="margin-bottom: 0.5rem;">
     <ion-tabs style="height: max-content;">
         <ion-tab-bar>
           <ion-tab-button (click)="goToDaysPage()">

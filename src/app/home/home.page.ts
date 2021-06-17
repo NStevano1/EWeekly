@@ -3,6 +3,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { File } from '@ionic-native/file/ngx';
 import {RootProvider, Week} from '../providers/root/root';
 import { Location } from '@angular/common';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ export class HomePage {
   trip_id: string = '1';
   trip_owner: string = '';
 
-  constructor(private rootProvider: RootProvider, private file: File, private location: Location) {
+  constructor(private rootProvider: RootProvider, private file: File, private location: Location, private loadingController: LoadingController) {
 
       if( this.file.checkDir(file.documentsDirectory, 'data') ){
           this.isVisible = true;
@@ -31,7 +32,13 @@ export class HomePage {
 
   }
 
-  syncData() {
+  async syncData() {
+
+    let loader = this.loadingController.create({
+      message: "Attempting to sync data... if the application does not refresh after this message disappears, there may have been a network issue",
+      duration: 2000
+    });
+    (await loader).present()
 
     this.rootProvider.downloadFileAndStore(this.trip_id);
 
