@@ -13,7 +13,7 @@
    <ion-card style="padding: 0.5rem; margin-bottom: 1rem;" *ngFor="let contact of contacts" (click)="goToContactPage(contact.id)">
         <ion-item>
             <ion-avatar item-start *ngIf="contact.image;else elseBlock">
-                <img [src]="documentDirectory + 'data/assets/' + contact.image">
+                <img src="imagePath + contact.image">
             </ion-avatar>
             <ng-template #elseBlock>
                 <ion-icon name="person-circle-outline" item-start></ion-icon>

@@ -15,14 +15,14 @@ export class ContactsPage {
 
     public contacts: Contact[];
     public error: any;
-    public documentDirectory;
+    public imagePath:string;
 
     constructor(private platform: Platform, private router: Router,
         private contactsProvider: ContactsProvider, private location: Location, private file: File) {
         this.platform.ready().then(() => {
             this.loadContacts();
         });
-        this.documentDirectory = this.file.documentsDirectory;
+        this.imagePath = this.file.documentsDirectory.substring(7,this.file.documentsDirectory.length) + 'data/assets/';
     }
 
     async loadContacts() {

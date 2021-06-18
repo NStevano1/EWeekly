@@ -12,8 +12,8 @@
 <ion-content >
     <ion-card style="padding: 0.5rem; margin-bottom: 1rem;" *ngIf="contact">
         <div style="display: flex; align-items: center;">
-            <div *ngIf="contact.image" >
-                <img style="max-height: 15rem; width: auto;" src="{{ imagePath }}">
+            <div *ngIf="contact.image">
+                <ion-img style="max-height: 12rem; width: 8rem;" [src]="imagePath"></ion-img>
             </div>
             <div style="margin-left: 2rem;">
                 <h1><b>{{ contact.name }}</b></h1>

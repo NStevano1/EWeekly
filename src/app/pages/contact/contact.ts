@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { File } from '@ionic-native/file/ngx';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
     selector: 'app-page-contact',
@@ -17,7 +18,7 @@ export class ContactPage implements OnInit {
     id: number;
     private sub: any;
     public imagePath:string;
-
+    public dataURL;
     constructor(private platform: Platform, private contactsProvider: ContactsProvider, private router: Router, private route: ActivatedRoute, private location: Location, private file: File) {
     }
 
@@ -33,7 +34,9 @@ export class ContactPage implements OnInit {
                 const contact = await this.contactsProvider.getContactCustom(id);
                 console.log(contact);
                 this.contact = JSON.parse( String(contact));
-                this.imagePath = this.file.documentsDirectory + 'data/assets/' + this.contact.image;
+                var filePath = this.file.documentsDirectory + 'data/assets/' + this.contact.image;                
+                this.imagePath = Capacitor.convertFileSrc(filePath);
+                console.log(this.imagePath);
             }
         
             goBack() {
