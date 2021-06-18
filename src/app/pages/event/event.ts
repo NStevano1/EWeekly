@@ -38,8 +38,8 @@ export class EventPage implements OnInit {
         this.location.back();
     }
 
-    showContacts(id){
-        this.router.navigate(['/contact/id']);
+    showContact(id){
+        this.router.navigate(['/contact', id]);
     }
 
     openDoc(document:Document){

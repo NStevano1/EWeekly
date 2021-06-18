@@ -5,6 +5,7 @@ import { HttpClient} from '@angular/common/http';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { File } from '@ionic-native/file/ngx';
 import { Plugins } from '@capacitor/core';
+import { Contact} from '../../providers/contacts/contacts';
 
 const { CustomFileReader } = Plugins;
 
@@ -26,6 +27,7 @@ export interface Event {
     updated_at: string;
     description_html: string;
     body_html: string;
+    participants: Contact[];
 }
 
 export interface Day {
