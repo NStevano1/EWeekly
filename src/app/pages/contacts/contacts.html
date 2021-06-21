@@ -12,12 +12,6 @@
 <ion-content padding>
    <ion-card style="padding: 0.5rem; margin-bottom: 1rem;" *ngFor="let contact of contacts" (click)="goToContactPage(contact.id)">
         <ion-item>
-            <ion-avatar item-start *ngIf="contact.image;else elseBlock">
-                <img src="imagePath + contact.image">
-            </ion-avatar>
-            <ng-template #elseBlock>
-                <ion-icon name="person-circle-outline" item-start></ion-icon>
-            </ng-template>
             <div>
             <span style="font-size: 1.4rem; font-weight: 700; display: flex; flex-wrap: wrap; margin-top: 0.5rem; margin-bottom: 0.5rem; padding-left: 0.5rem;">{{ contact.name }}</span>
             <p style="margin-bottom: 0.5rem; overflow: inherit; font-size: 1rem; line-height: normal; color: #666; white-space: pre-line !important; padding-left: 0.5rem;">{{ contact.title }}</p>
